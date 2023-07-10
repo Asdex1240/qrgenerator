@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Generador de QR
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-content>
+              <qrcode
+              id="qr"
+              [allowEmptyString]="true"
+              [qrdata]="qrData"
+              [imageWidth]="256"
+              ></qrcode>  
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                <ion-input label="Escribe aquí el texto" labelPlacement="floating" placeholder="visita asdex.dev" [(ngModel)]="qrData"></ion-input>
+              </ion-item>            
+              <ion-button (click)="downloadQR()"> Descarga </ion-button>
+              <br>
+              <br>
+              <a href="http://asdex.dev" target="_blank" rel="noopener noreferrer">asdex.dev</a>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p>Creado 10/07/2023</p>
+    <br>
+    <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
   </div>
 </ion-content>
